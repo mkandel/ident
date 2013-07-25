@@ -1,0 +1,20 @@
+ident.pl        - the ident server script
+test.pl         - a test script
+identserver.ini - config file for the server, should be in the same directory
+                  as ident.pl
+
+./ident.pl -h|--help for usage
+
+Notes:
+
+ident.pl requires Net::IdentServer which can be installed from cpan
+
+test.pl requires IO::Socket/IO::Socket::INET which is part of Perl core
+
+ident.pl is configured to run on the default Ident (RFC 1413) port of 113,
+which requires root permissions so the port can be opened and bound to.  If
+you want to remove this requirement, edit identserver.ini and change the port
+to something > 1024 then modify the test script to attach to that port (or
+telnet to that port).
+
+You will also want to change user and possibly group in identserver.ini.
